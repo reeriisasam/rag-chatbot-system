@@ -1,0 +1,62 @@
+
+llm:
+  provider: "donmi"
+  api_url: "https://122.154.50.92/external/api/completion-messages"
+  api_key: "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidGVzdCIsImFwcF9pZCI6IjY4NTY4Mjc3NzNjZjUzOTEyMTM2YzMxMSIsIm93bmVyIjoiNjdhYjRiMTY0NDllMDE4Y2NmMjViMDc4IiwiaWF0IjoxNzUwNTAwMDA2MDcyfQ.lIJuM5vPvYdcnjVKHHKBDz40d1KECX6Qf1-njeJGKGU"
+  timeout: 60
+  citation: false
+  response_mode: "blocking"
+  
+# RAG Configuration
+rag:
+  chunk_size: 1000
+  chunk_overlap: 200
+  top_k: 5
+  similarity_threshold: 0.7
+  
+  # Vector Store
+  vector_store:
+    type: "chroma"  # options: chroma, faiss
+    persist_directory: "./data/vector_db"
+  
+  # Embeddings
+  embeddings:
+    model: "sentence-transformers/all-MiniLM-L6-v2"
+    device: "cpu"  # or "cuda" for GPU
+
+# Audio Configuration
+audio:
+  # Speech-to-Text
+  stt:
+    engine: "google"  # เปลี่ยนเป็น google (ไม่ต้องโหลด whisper model)
+    model: "base"
+    language: "th"
+  
+  # Text-to-Speech
+  tts:
+    engine: "pyttsx3"
+    rate: 180        # เพิ่มความเร็ว (ช้าไป = เสียงเบา)
+    volume: 1.0      # เพิ่มเป็น 1.0 (เต็ม)
+    voice: "th"
+
+# UI Configuration
+ui:
+  mode: "auto"  # options: text, voice, auto
+  terminal:
+    prompt_symbol: "🤖 >"
+    user_symbol: "👤 >"
+    colors:
+      bot: "cyan"
+      user: "green"
+      system: "yellow"
+
+# Logging
+logging:
+  level: "INFO"
+  file: "./logs/app.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Documents
+documents:
+  directory: "./data/documents"
+  supported_formats: [".txt", ".pdf", ".docx", ".md"]

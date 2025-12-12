@@ -1,0 +1,46 @@
+# Core Dependencies
+langchain==0.3.13
+langchain-community==0.3.13
+langgraph==0.2.59
+langchain-openai==0.2.14
+langchain-core==0.3.28
+langchain-text-splitters==0.3.4
+
+# Vector Store & Embeddings
+chromadb==0.4.22
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+
+# LLM Support
+openai==1.10.0
+llama-cpp-python==0.2.27
+transformers==4.36.2
+torch==2.1.2
+
+# Document Processing
+pypdf==3.17.4
+docx2txt==0.8
+python-magic==0.4.27
+unstructured==0.11.6
+
+# Audio Processing
+SpeechRecognition==3.10.1
+pyttsx3==2.90
+pyaudio==0.2.14
+sounddevice==0.4.6
+soundfile==0.12.1
+whisper==1.1.10
+
+# UI & Utils
+rich==13.7.0
+prompt-toolkit==3.0.43
+python-dotenv==1.0.0
+pyyaml==6.0.1
+colorama==0.4.6
+
+# Logging & Monitoring
+loguru==0.7.2
+
+# Optional: For better performance
+numpy==1.26.3
+pandas==2.1.4
